@@ -348,22 +348,82 @@
             }
         }
 
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 12px 20px;
+            width: 100%;
+            text-align: left;
+        }
+
         @media (max-width: 768px) {
             .content {
                 padding: 20px;
             }
+            header {
+                padding: 40px 20px;
+            }
             header h1 {
-                font-size: 1.8em;
+                font-size: 1.6em;
+            }
+            header .subtitle {
+                font-size: 1em;
             }
             header .meta {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
+            }
+            header .meta-item {
+                font-size: 0.85em;
+            }
+            .nav-toggle {
+                display: block;
             }
             nav ul {
+                display: none;
                 flex-direction: column;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            nav ul li a {
+                padding: 12px 20px;
+                border-top: 1px solid #4a5568;
+            }
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
             }
             .stat-grid, .feature-grid {
                 grid-template-columns: 1fr;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            .architecture-diagram {
+                padding: 15px;
+                font-size: 0.65em;
+            }
+            pre {
+                padding: 15px;
+                font-size: 0.85em;
+            }
+            table {
+                font-size: 0.85em;
+            }
+            table th, table td {
+                padding: 8px;
+            }
+            .stat-card .number {
+                font-size: 2em;
             }
         }
 
@@ -415,13 +475,14 @@
         </header>
 
         <nav>
+            <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open'); this.textContent = this.textContent === '☰ Menu' ? '✕ Fechar' : '☰ Menu'">☰ Menu</button>
             <ul>
-                <li><a href="#visao-geral">Visão Geral</a></li>
-                <li><a href="#arquitetura">Arquitetura</a></li>
-                <li><a href="#funcionalidades">Funcionalidades</a></li>
-                <li><a href="#metricas">Métricas</a></li>
-                <li><a href="#tecnico">Detalhes Técnicos</a></li>
-                <li><a href="#impacto">Impacto</a></li>
+                <li><a href="#visao-geral" onclick="document.querySelector('nav ul').classList.remove('open'); document.querySelector('.nav-toggle').textContent='☰ Menu'">Visão Geral</a></li>
+                <li><a href="#arquitetura" onclick="document.querySelector('nav ul').classList.remove('open'); document.querySelector('.nav-toggle').textContent='☰ Menu'">Arquitetura</a></li>
+                <li><a href="#funcionalidades" onclick="document.querySelector('nav ul').classList.remove('open'); document.querySelector('.nav-toggle').textContent='☰ Menu'">Funcionalidades</a></li>
+                <li><a href="#metricas" onclick="document.querySelector('nav ul').classList.remove('open'); document.querySelector('.nav-toggle').textContent='☰ Menu'">Métricas</a></li>
+                <li><a href="#tecnico" onclick="document.querySelector('nav ul').classList.remove('open'); document.querySelector('.nav-toggle').textContent='☰ Menu'">Detalhes Técnicos</a></li>
+                <li><a href="#impacto" onclick="document.querySelector('nav ul').classList.remove('open'); document.querySelector('.nav-toggle').textContent='☰ Menu'">Impacto</a></li>
             </ul>
         </nav>
 
